@@ -1,0 +1,33 @@
+
+[build]
+  command = "npm run build"  # or "yarn build" if you're using Yarn
+  publish = "dist"           # Vite's default output directory
+
+[context.production.environment]
+  NODE_VERSION = "v20.11.0"  # Set the Node.js version
+  NPM_VERSION = "10.2.4"     # Set the NPM version
+
+[[redirects]]
+  from = "/*"                # Redirect all routes
+  to = "/index.html"         # Serve the index.html for all routes
+  status = 200               # Ensure a successful response
+
+[context.deploy-preview]
+  command = "npm run build"  # For deploy preview, you can use the same build command
+  publish = "dist"           # Vite output directory
+
+  [context.deploy-preview.environment]
+  NODE_VERSION = "v20.11.0"  # Same Node.js version as production
+  NPM_VERSION = "10.2.4"     # Same NPM version as production
+
+[context.branch-deploy]
+  command = "npm run build"  # Use the same build command for branch deployments
+  publish = "dist"           # Vite output directory
+
+  [context.branch-deploy.environment]
+  NODE_VERSION = "v20.11.0"  # Same Node.js version as production
+  NPM_VERSION = "10.2.4"     # Same NPM version as production
+
+[context.next.environment]
+  NODE_VERSION = "v20.11.0"  # Same Node.js version as production
+  NPM_VERSION = "10.2.4"     # Same NPM version as production
