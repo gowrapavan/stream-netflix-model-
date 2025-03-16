@@ -14,7 +14,7 @@
 
 [context.deploy-preview]
   command = "npm run build"  # For deploy preview, you can use the same build command
-  publish = "dist"           # Vite output directory
+  publish = "build"           # Vite output directory
 
   [context.deploy-preview.environment]
   NODE_VERSION = "v20.11.0"  # Same Node.js version as production
@@ -22,7 +22,7 @@
 
 [context.branch-deploy]
   command = "npm run build"  # Use the same build command for branch deployments
-  publish = "dist"           # Vite output directory
+  publish = "build"           # Vite output directory
 
   [context.branch-deploy.environment]
   NODE_VERSION = "v20.11.0"  # Same Node.js version as production
